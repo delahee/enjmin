@@ -5,6 +5,7 @@
 
 #include "C.hpp"
 #include "Game.hpp"
+#include "Entity.hpp"
 
 #include "HotReloadShader.hpp"
 
@@ -40,10 +41,23 @@ Game::Game(sf::RenderWindow * win) {
 	walls.push_back(Vector2i(cols >>2, lastLine - 4));
 	walls.push_back(Vector2i((cols >> 2) + 1, lastLine - 4));
 	cacheWalls();
+
+	initMainChar();
 }
 
-void Game::cacheWalls()
-{
+void Game::initMainChar(){
+	auto spr = new sf::RectangleShape({ C::GRID_SIZE, C::GRID_SIZE * 2 });
+	spr->setFillColor(sf::Color::Magenta);
+	spr->setOutlineColor(sf::Color::Red);
+	spr->setOutlineThickness(2);
+	spr->setOrigin({ C::GRID_SIZE * 0.5f, C::GRID_SIZE * 2 });
+	auto e = new Entity(spr);
+	e->setCooGrid(3, int(C::RES_Y / C::GRID_SIZE) - 1);
+	ents.push_back(e);
+	printf("ent added");
+}
+
+void Game::cacheWalls(){
 	wallSprites.clear();
 	for (Vector2i & w : walls) {
 		sf::RectangleShape rect(Vector2f(16,16));
@@ -59,6 +73,7 @@ void Game::processInput(sf::Event ev) {
 		closing = true;
 		return;
 	}
+	
 	if (ev.type == sf::Event::KeyReleased) {
 		int here = 0;
 		if (ev.key.code == Keyboard::K) {
@@ -66,6 +81,19 @@ void Game::processInput(sf::Event ev) {
 			walls.clear();
 			cacheWalls();
 		}
+
+		if (ev.key.code == Keyboard::E) {
+		/*	auto spr = new sf::RectangleShape({ C::GRID_SIZE, C::GRID_SIZE * 2 });
+			spr->setFillColor(sf::Color::Magenta);
+			spr->setOutlineColor(sf::Color::Red);
+			spr->setOutlineThickness(2);
+			spr->setOrigin({ C::GRID_SIZE * 0.5f, C::GRID_SIZE * 2});
+			auto e = new Entity( spr );
+			//e->setCooPixel(335, 337);
+			e->setCooGrid(3,int(C::RES_Y / C::GRID_SIZE)-1);
+			printf("ent added");
+			ents.push_back(e);
+		*/}
 	}
 }
 
@@ -79,11 +107,21 @@ void Game::pollInput(double dt) {
 	float lateralSpeed = 8.0;
 	float maxSpeed = 40.0;
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Q)) {
-
+		if (ents.size()) {
+			auto mainChar = ents[0];
+			if (mainChar) {
+				mainChar->dx -= 5;
+			}
+		}
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) {
-
+		if (ents.size()) {
+			auto mainChar = ents[0];
+			if (mainChar) {
+				mainChar->dx += 5;
+			}
+		}
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space)) {
@@ -121,6 +159,10 @@ void Game::update(double dt) {
 	pollInput(dt);
 
 	g_time += dt;
+
+	for (auto e : ents) 
+		e->update(dt);
+
 	if (bgShader) bgShader->update(dt);
 
 	beforeParts.update(dt);
@@ -147,6 +189,8 @@ void Game::update(double dt) {
 	for (sf::RectangleShape& r : rects) 
 		win.draw(r);
 	
+	for (auto e: ents)
+		e->draw(win);
 
 	afterParts.draw(win);
 }
@@ -167,6 +211,7 @@ bool Game::isWall(int cx, int cy)
 
 void Game::im()
 {
-
+	int hre = 0;
+	for (auto e : ents)e->im();
 }
 

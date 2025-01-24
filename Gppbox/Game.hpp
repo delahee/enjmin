@@ -13,6 +13,7 @@
 
 using namespace sf;
 
+class Entity;
 class HotReloadShader;
 class Game {
 public:
@@ -27,12 +28,14 @@ public:
 	
 	std::vector<sf::Vector2i>		walls;
 	std::vector<sf::RectangleShape> wallSprites;
+	std::vector<Entity*>			ents;
 
 	ParticleMan beforeParts;
 	ParticleMan afterParts;
 
 	Game(sf::RenderWindow * win);
 
+	void initMainChar();
 	void cacheWalls();
 
 	void processInput(sf::Event ev);

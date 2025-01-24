@@ -41,13 +41,12 @@ static int curDts = 0;
 
 int main()
 {
-    cout << "Hello World!\n";
-	
     sf::RenderWindow window(sf::VideoMode(C::RES_X, C::RES_Y,32), "SFML works!");
     //sf::RenderWindow window(sf::VideoMode(800, 600,32), "SFML works!");
     //sf::RenderWindow window(sf::VideoMode(1280, 720,32), "SFML works!");
-	window.setVerticalSyncEnabled(false);
-    Font font;
+	window.setVerticalSyncEnabled(true);
+	window.setFramerateLimit(60);
+	Font font;
 
     if (!font.loadFromFile("res/MAIAN.TTF")) {
         cout << "ERROR NO FONT" << endl;
