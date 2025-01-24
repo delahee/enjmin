@@ -16,10 +16,10 @@ public:
 
 	float		dx = 0.f;
 	float		dy = 0.f;
-	float		gy = 0.f;
+	float		gravy = 0.f;
 
-	float		frx = 0.91f;
-	float		fry = 0.91f;
+	float		frx = 0.88f;
+	float		fry = 1.0f;
 
 					Entity(sf::Shape* spr);
 

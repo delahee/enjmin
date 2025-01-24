@@ -1,6 +1,7 @@
+#include <imgui.h>
+
 #include "Entity.hpp"
 #include "C.hpp"
-#include <imgui.h>
 #include "Game.hpp"
 
 Entity::Entity(sf::Shape* _spr) : spr(_spr) {
@@ -10,6 +11,8 @@ Entity::Entity(sf::Shape* _spr) : spr(_spr) {
 void Entity::update(double dt){
 	double rate = 1.0 / dt;
 	double dfr = 60.0f / rate;
+
+	dy += gravy * dt;
 
 	dx = dx * pow(frx, dfr);
 	dy = dy * pow(fry, dfr);
@@ -39,8 +42,8 @@ void Entity::update(double dt){
 			dx = 0;
 			rx = 0.3f;
 		}
-
 	}
+
 
 	
 	syncPos();
@@ -88,19 +91,20 @@ bool Entity::im()
 	Value("ry",ry);
 
 	sf::Vector2i pix = getPosPixel();
-	chg |= DragInt2("rx/ry", &pix.x, 1.0f, -2000,2000);
+	chg |= DragInt2("pix x/pix y", &pix.x, 1.0f, -2000,2000);
 	if (chg) 
 		setCooPixel(pix.x, pix.y);
 
 	chg |= DragInt2("cx/cy", &cx, 1.0f, -2000, 2000);
 	
 	sf::Vector2f coo = { cx + rx, cy + ry };
-	bool chgCoo = DragFloat2("coo px x/y", &coo.x, 1.0f, -2000,2000);
+	bool chgCoo = DragFloat2("coo grid x/y", &coo.x, 1.0f, -2000,2000);
 	if (chgCoo) 
 		setCooGrid(coo.x, coo.y);
 	
 	chg |= DragFloat2("dx/dy", &dx, 0.01f, -20,20);
 	chg |= DragFloat2("frx/fry", &frx, 0.001f, 0, 1);
+	chg |= DragFloat("gravy/fry", &gravy, 0.001f, -2, 2);
 
 	return chg||chgCoo;
 }

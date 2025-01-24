@@ -9,9 +9,9 @@
 
 #include "HotReloadShader.hpp"
 
-Game* Game::me = 0;
-static int cols = C::RES_X / C::GRID_SIZE;
-static int lastLine = C::RES_Y / C::GRID_SIZE - 1;
+Game*		Game::me = 0;
+static int	cols = C::RES_X / C::GRID_SIZE;
+static int	lastLine = C::RES_Y / C::GRID_SIZE - 1;
 
 Game::Game(sf::RenderWindow * win) {
 	this->win = win;
@@ -38,6 +38,7 @@ Game::Game(sf::RenderWindow * win) {
 	walls.push_back(Vector2i(cols-1, lastLine - 2));
 	walls.push_back(Vector2i(cols-1, lastLine - 3));
 
+	walls.push_back(Vector2i(cols >>2, lastLine - 1));
 	walls.push_back(Vector2i(cols >>2, lastLine - 2));
 	walls.push_back(Vector2i(cols >>2, lastLine - 3));
 	walls.push_back(Vector2i(cols >>2, lastLine - 4));
@@ -54,7 +55,9 @@ void Game::initMainChar(){
 	spr->setOutlineThickness(2);
 	spr->setOrigin({ C::GRID_SIZE * 0.5f, C::GRID_SIZE * 2 });
 	auto e = new Entity(spr);
-	e->setCooGrid(3, int(C::RES_Y / C::GRID_SIZE) - 1);
+	e->setCooGrid(3, int(C::RES_Y / C::GRID_SIZE) - 2);
+	e->ry = 0.99f;
+	e->syncPos();
 	ents.push_back(e);
 	printf("ent added");
 }
@@ -210,22 +213,37 @@ bool Game::hasCollision(float gridx, float gridy)
 	if (gridx >= wallRightX)
 		return true;
 
+	for (auto& w : walls) 
+		if(		(w.x == int(gridx))
+			&&	(w.y == int(gridy))) 
+				return true;
 	return false;
 }
 
 
-bool Game::isWall(int cx, int cy)
-{
-	for (Vector2i & w : walls) {
+bool Game::isWall(int cx, int cy){
+	for (Vector2i & w : walls) 
 		if (w.x == cx && w.y == cy)
 			return true;
-	}
 	return false;
 }
 
-void Game::im()
-{
+void Game::im(){
+	using namespace ImGui;
 	int hre = 0;
-	for (auto e : ents)e->im();
+
+	if (TreeNodeEx("Walls", ImGuiTreeNodeFlags_DefaultOpen)) {
+		for (auto& w : walls) {
+			Value("x",w.x);
+			Value("y",w.y);
+		}
+		TreePop();
+
+	}
+	if (TreeNodeEx("Entities", ImGuiTreeNodeFlags_DefaultOpen)) {
+		for (auto e : ents)
+			e->im();
+		TreePop();
+	}
 }
 
