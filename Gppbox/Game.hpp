@@ -33,7 +33,8 @@ public:
 	ParticleMan beforeParts;
 	ParticleMan afterParts;
 
-	Game(sf::RenderWindow * win);
+	static Game* me;
+		Game(sf::RenderWindow * win);
 
 	void initMainChar();
 	void cacheWalls();
@@ -42,6 +43,8 @@ public:
 	bool wasPressed = false;
 	void pollInput(double dt);
 	void onSpacePressed();
+
+	bool hasCollision(float gridx, float gridy);
 
 	void update(double dt);
 

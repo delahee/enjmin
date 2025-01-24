@@ -9,11 +9,13 @@
 
 #include "HotReloadShader.hpp"
 
+Game* Game::me = 0;
 static int cols = C::RES_X / C::GRID_SIZE;
 static int lastLine = C::RES_Y / C::GRID_SIZE - 1;
 
 Game::Game(sf::RenderWindow * win) {
 	this->win = win;
+	me = this;
 	bg = sf::RectangleShape(Vector2f((float)win->getSize().x, (float)win->getSize().y));
 
 	bool isOk = tex.loadFromFile("res/bg_stars.png");
@@ -197,6 +199,18 @@ void Game::update(double dt) {
 
 void Game::onSpacePressed() {
 	
+}
+
+bool Game::hasCollision(float gridx, float gridy)
+{
+	if (gridx < 1.5)
+		return true;
+
+	auto wallRightX = (C::RES_X / C::GRID_SIZE) -1;
+	if (gridx >= wallRightX)
+		return true;
+
+	return false;
 }
 
 
