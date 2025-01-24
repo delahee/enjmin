@@ -130,7 +130,13 @@ void Game::pollInput(double dt) {
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space)) {
-
+		if (ents.size()) {
+			auto mainChar = ents[0];
+			if (mainChar && !mainChar->jumping) {
+				mainChar->dy -= 40;
+				mainChar->setJumping(true);
+			}
+		}
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::T)) {
@@ -232,7 +238,7 @@ void Game::im(){
 	using namespace ImGui;
 	int hre = 0;
 
-	if (TreeNodeEx("Walls", ImGuiTreeNodeFlags_DefaultOpen)) {
+	if (TreeNodeEx("Walls", 0)) {
 		for (auto& w : walls) {
 			Value("x",w.x);
 			Value("y",w.y);

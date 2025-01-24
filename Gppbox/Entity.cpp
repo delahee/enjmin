@@ -44,7 +44,28 @@ void Entity::update(double dt){
 		}
 	}
 
+	if (jumping) {
+		if ((dy > 0) ) {
+			if (g.hasCollision(cx + rx, cy + ry)) {
+				setJumping(false);
+				ry = 0.99f;
+				dy = 0;
+			}
+			else {
+				if(ry > 1) {
+					ry--;
+					cy++;
+				}
+			}
+		}
 
+		if (dy < 0) {
+			while (ry < 0) {
+				ry++;
+				cy--;
+			}
+		}
+	}
 	
 	syncPos();
 }
@@ -84,6 +105,7 @@ bool Entity::im()
 
 	bool chg = false;
 	
+	Value("jumping", jumping);
 	Value("cx", cx);
 	Value("cy", cy);
 
@@ -106,7 +128,30 @@ bool Entity::im()
 	chg |= DragFloat2("frx/fry", &frx, 0.001f, 0, 1);
 	chg |= DragFloat("gravy/fry", &gravy, 0.001f, -2, 2);
 
+	if (Button("reset")) {
+		cx = 3;
+		cy = 54;
+		rx = 0.5f;
+		ry = 0.99f;
+
+		dx = dy = 0;
+		setJumping(false);
+	}
 	return chg||chgCoo;
+}
+
+void Entity::setJumping(bool onOff){
+	if (jumping && onOff) 
+		return;
+
+	if (onOff) {
+		gravy = 80;
+		jumping = true;
+	}
+	else {
+		gravy = 0;
+		jumping = false;
+	}
 }
 
 sf::Vector2i Entity::getPosPixel()
