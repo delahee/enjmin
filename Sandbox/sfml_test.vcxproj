@@ -29,26 +29,26 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -168,16 +168,6 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="HotReloadShader.cpp" />
     <ClCompile Include="Lib.cpp" />
-    <ClCompile Include="libs\eastl\source\allocator_eastl.cpp" />
-    <ClCompile Include="libs\eastl\source\assert.cpp" />
-    <ClCompile Include="libs\eastl\source\atomic.cpp" />
-    <ClCompile Include="libs\eastl\source\fixed_pool.cpp" />
-    <ClCompile Include="libs\eastl\source\hashtable.cpp" />
-    <ClCompile Include="libs\eastl\source\intrusive_list.cpp" />
-    <ClCompile Include="libs\eastl\source\numeric_limits.cpp" />
-    <ClCompile Include="libs\eastl\source\red_black_tree.cpp" />
-    <ClCompile Include="libs\eastl\source\string.cpp" />
-    <ClCompile Include="libs\eastl\source\thread_support.cpp" />
     <ClCompile Include="libs\imgui-sfml\imgui-SFML.cpp" />
     <ClCompile Include="libs\imgui\imgui.cpp" />
     <ClCompile Include="libs\imgui\imgui_draw.cpp" />
@@ -190,87 +180,10 @@
     <ClInclude Include="Bloom.hpp" />
     <ClInclude Include="C.hpp" />
     <ClInclude Include="Dice.hpp" />
-    <ClInclude Include="eastl_config.hpp" />
     <ClInclude Include="Game.hpp" />
     <ClInclude Include="HotReloadShader.hpp" />
     <ClInclude Include="Interp.hpp" />
     <ClInclude Include="Lib.hpp" />
-    <ClInclude Include="libs\eastl\include\EASTL\algorithm.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\allocator.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\allocator_malloc.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\any.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\array.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\atomic.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\bitset.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\bitvector.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\chrono.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\core_allocator.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\core_allocator_adapter.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\deque.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\finally.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\fixed_allocator.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\fixed_function.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\fixed_hash_map.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\fixed_hash_set.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\fixed_list.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\fixed_map.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\fixed_set.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\fixed_slist.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\fixed_string.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\fixed_substring.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\fixed_vector.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\functional.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\hash_map.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\hash_set.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\heap.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\initializer_list.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\intrusive_hash_map.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\intrusive_hash_set.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\intrusive_list.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\intrusive_ptr.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\iterator.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\linked_array.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\linked_ptr.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\list.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\map.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\memory.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\meta.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\numeric.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\numeric_limits.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\optional.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\priority_queue.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\queue.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\random.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\ratio.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\safe_ptr.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\scoped_array.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\scoped_ptr.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\segmented_vector.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\set.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\shared_array.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\shared_ptr.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\slist.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\sort.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\span.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\stack.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\string.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\string_hash_map.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\string_map.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\string_view.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\tuple.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\type_traits.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\unique_ptr.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\unordered_map.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\unordered_set.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\utility.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\variant.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\vector.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\vector_map.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\vector_multimap.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\vector_multiset.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\vector_set.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\version.h" />
-    <ClInclude Include="libs\eastl\include\EASTL\weak_ptr.h" />
     <ClInclude Include="libs\imgui-sfml\imgui-SFML.h" />
     <ClInclude Include="libs\imgui-sfml\imgui-SFML_export.h" />
     <ClInclude Include="libs\imgui\imgui.h" />

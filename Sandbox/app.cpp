@@ -1,7 +1,8 @@
-// sfml_test.cpp : Ce fichier contient la fonction 'main'. L'exécution du programme commence et se termine à cet endroit.
-//
-
-#include <iostream> // inclut un entete/header appelé iostream
+#include <iostream> 
+#include <array>
+#include <numeric>
+#include <algorithm>
+#include <functional>
 
 #include <imgui.h>
 #include <imgui-SFML.h>
@@ -18,10 +19,6 @@
 #include "HotReloadShader.hpp"
 #include "app.h"
 
-#include <array>
-#include <numeric>
-#include <algorithm>
-#include <functional>
 
 #define WIN32_LEAN_AND_MEAN
 #include <Windows.h>
@@ -45,6 +42,8 @@ int main()
 {
     cout << "Hello World!\n";
 	
+    //sf::RenderWindow window(sf::VideoMode(1920, 1080,32), "SFML works!");
+    //sf::RenderWindow window(sf::VideoMode(800, 600,32), "SFML works!");
     sf::RenderWindow window(sf::VideoMode(1280, 720,32), "SFML works!");
 	window.setVerticalSyncEnabled(false);
     Font font;
@@ -100,8 +99,8 @@ int main()
 		double dt = frameEnd - frameStart;
 		frameStart = Lib::getTimeStamp();
 
-		if (dt < 0.000001) {
-			dt = 0.000001;
+		if (dt < 0.00000001) {
+			dt = 0.00000001;
 		}
 
         sf::Event event;
@@ -109,6 +108,20 @@ int main()
 		{
 			ImGui::SFML::ProcessEvent(event);
 			g.processInput(event);
+
+			if (event.type == sf::Event::Resized) {
+				auto nsz = window.getSize();
+				winTex.create(window.getSize().x, window.getSize().y);
+
+				destX->create(window.getSize().x, window.getSize().y);
+				destX->clear(sf::Color(0, 0, 0, 0));
+
+				destFinal->create(window.getSize().x, window.getSize().y);
+				destFinal->clear(sf::Color(0, 0, 0, 0));
+
+				v = sf::View(Vector2f(nsz.x * 0.5f, nsz.y * 0.5f), Vector2f(nsz.x, nsz.y));
+				viewCenter = v.getCenter();
+			}
 		}
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::K)) {
@@ -120,6 +133,11 @@ int main()
 
         g.update(dt);
 		
+		if (ImGui::CollapsingHeader("View")) {
+			auto sz = v.getSize();
+			ImGui::Value("size x", sz.x);
+			ImGui::Value("size y", sz.y);
+		}
 		if (ImGui::CollapsingHeader("App Stats", ImGuiTreeNodeFlags_::ImGuiTreeNodeFlags_DefaultOpen)) {
 			//double df = (Lib::getTimeStamp() - frameStart);
 
@@ -146,7 +164,7 @@ int main()
 		window.setView(v);
 
 		if (ImGui::CollapsingHeader("Bloom Control")) {
-			ImGui::SliderFloat("bloomWidth", &bloomWidth, 0, 55);
+			ImGui::SliderFloat("bloomWidth", &bloomWidth, 0, 55);//55 is max acceptable kernel size for constants, otherwise we should use a texture
 			ImGui::ColorEdit4("bloomMul", &bloomMul.x);
 		}
 		g.im();
