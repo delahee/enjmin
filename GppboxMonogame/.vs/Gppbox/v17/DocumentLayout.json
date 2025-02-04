@@ -22,12 +22,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 444,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -50,8 +46,7 @@
               "ToolTip": "C:\\Workspace\\enjmin\\GppboxMonogame\\Icon.bmp",
               "RelativeToolTip": "Icon.bmp",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2025-01-30T16:43:46.774Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-30T16:43:46.774Z"
             },
             {
               "$type": "Document",
@@ -61,7 +56,7 @@
               "RelativeDocumentMoniker": "Game1.cs",
               "ToolTip": "C:\\Workspace\\enjmin\\GppboxMonogame\\Game1.cs",
               "RelativeToolTip": "Game1.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAowCMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-30T16:40:51.888Z",
               "EditorCaption": ""

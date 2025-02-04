@@ -7,3 +7,6 @@
 /Gppbox/sfml_test/x64
 /GppboxMonogame/bin
 /GppboxMonogame/obj
+/GppboxMonogameNetwork/bin
+/GppboxMonogameNetwork/.vs
+/GppboxMonogameNetwork/obj

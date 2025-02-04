@@ -7,6 +7,10 @@
       "RelativeMoniker": "D:0:0:{ABB2BDA1-FD52-470F-B61D-A6E8F0BB4782}|Gppbox.csproj|solutionrelative:game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{ABB2BDA1-FD52-470F-B61D-A6E8F0BB4782}|Gppbox.csproj|c:\\workspace\\enjmin\\gppboxmonogame\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABB2BDA1-FD52-470F-B61D-A6E8F0BB4782}|Gppbox.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{ABB2BDA1-FD52-470F-B61D-A6E8F0BB4782}|Gppbox.csproj|c:\\workspace\\enjmin\\gppboxmonogame\\icon.bmp||{58961B49-13E0-48C0-9258-13CBC4D40279}",
       "RelativeMoniker": "D:0:0:{ABB2BDA1-FD52-470F-B61D-A6E8F0BB4782}|Gppbox.csproj|solutionrelative:icon.bmp||{58961B49-13E0-48C0-9258-13CBC4D40279}"
     }
@@ -21,20 +25,27 @@
           "SelectedChildIndex": 2,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Workspace\\enjmin\\GppboxMonogame\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Workspace\\enjmin\\GppboxMonogame\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-30T16:50:35.75Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Icon.bmp",
               "DocumentMoniker": "C:\\Workspace\\enjmin\\GppboxMonogame\\Icon.bmp",
               "RelativeDocumentMoniker": "Icon.bmp",
               "ToolTip": "C:\\Workspace\\enjmin\\GppboxMonogame\\Icon.bmp",
               "RelativeToolTip": "Icon.bmp",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2025-01-30T16:43:46.774Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-30T16:43:46.774Z"
             },
             {
               "$type": "Document",
@@ -44,7 +55,7 @@
               "RelativeDocumentMoniker": "Game1.cs",
               "ToolTip": "C:\\Workspace\\enjmin\\GppboxMonogame\\Game1.cs",
               "RelativeToolTip": "Game1.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAwwDcAAAB+AAAAAAAAAA==",
+              "ViewState": "AgIAABsAAAAAAAAAAAA5wCMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-30T16:40:51.888Z",
               "EditorCaption": ""
