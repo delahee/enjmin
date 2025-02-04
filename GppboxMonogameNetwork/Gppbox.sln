@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35514.174
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gppbox", "Gppbox.csproj", "{ABB2BDA1-FD52-470F-B61D-A6E8F0BB4782}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GppboxServer", "GppboxServer.csproj", "{ABB2BDA1-FD52-470F-B61D-A6E8F0BB4782}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Éléments de solution", "Éléments de solution", "{A633DB48-75AF-4879-97E1-395AED41E266}"
 	ProjectSection(SolutionItems) = preProject
